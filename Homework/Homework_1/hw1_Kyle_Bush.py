@@ -23,10 +23,48 @@ Use the value of your iterator to ask the three questions.
 
 import sys
 import math
+import random
 
-print('You must answer three questions to reveal the secret.')
+def question1():
+    randomInt1 = random.randint(1, 100)
+    randomInt2 = random.randint(1, 100)
+    randomInt3 = random.randint(1, 100)
+    randomInt4 = random.randint(2, 10)
+    correctAnswer = (randomInt1 * randomInt2 + randomInt3) % randomInt4
 
-questions = ['Question #1', 'Question #2', 'Question #3']
+    print('What is remainder of the product of %d and %d added to %d divided by %d?' % (randomInt1, randomInt2, randomInt3, randomInt4))
+    userAnswer = int(input())
 
-for questionNumber in range(0,3):
-    print(questions[questionNumber])
+    if userAnswer == correctAnswer:
+        print('Correct. You can advance to the next question.')
+    else:
+        print('Incorrect. You can not advance. Maybe invest in a calculator.')
+        sys.exit()
+
+def question2():
+    keyWord = 'pneumonoultramicroscopicsilicovolcanoconiosis'
+    correctAnswer = len(keyWord)
+    print('How many characters are in the word %s' % keyWord)
+
+    userAnswer = int(input())
+
+    if userAnswer == correctAnswer:
+        print('Correct. You can advance to the next question.')
+    else:
+        print('Incorrect. You can not advance. All you had to do was count.')
+        sys.exit()
+
+def question3():
+    print('In question #3 function.')
+
+def main():
+    questions = [question1, question2, question3]
+
+    print('You must answer three questions to reveal the secret.')
+
+    for questionNumber in range(0,3):
+        questions[questionNumber]()
+    
+
+if __name__ == "__main__":
+    main()
