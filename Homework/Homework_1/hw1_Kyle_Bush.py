@@ -57,13 +57,37 @@ def question2():
 def question3():
     print('In question #3 function.')
 
+def revealSecretCode():
+    
+
 def main():
-    questions = [question1, question2, question3]
+    isSecretCodeRevealed = False
+    while not isSecretCodeRevealed:
+        print('You must answer three questions to reveal the secret code.')
+        print('But first...')
 
-    print('You must answer three questions to reveal the secret.')
+        for questionNumber in range(1,4):
+            if questionNumber == 1:
+                print('%d. What is your name?' % questionNumber)
+                name = input()
+                continue
+            elif questionNumber == 2:
+                print('%d. What is your quest?' % questionNumber)
+                quest = input()
+                continue
+            elif questionNumber == 3:
+                print('%d. What is your favorite color?' % questionNumber)
+                favColor = input()
 
-    for questionNumber in range(0,3):
-        questions[questionNumber]()
+        print('Hi %s! %s is my favorite color too. Good luck on your quest, %s.' % (name, favColor, quest))
+        print('Now for the difficult questions!')
+
+        question1()
+        question2()
+        question3()
+
+        revealSecretCode()
+        isSecretCodeRevealed = True
     
 
 if __name__ == "__main__":
