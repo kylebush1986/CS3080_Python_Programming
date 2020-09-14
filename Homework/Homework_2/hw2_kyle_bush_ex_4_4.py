@@ -23,6 +23,7 @@ def main():
     guess = random.randint(LOWER_BOUND, UPPER_BOUND)
 
     for numberOfGuesses in range(NUM_GUESSES_ALLOWED):
+        print('Take a guess.')
         print(guess)
         if guess < correctNumber:
             LOWER_BOUND = guess

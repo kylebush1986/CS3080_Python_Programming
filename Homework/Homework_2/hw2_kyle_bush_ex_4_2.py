@@ -20,6 +20,7 @@ def main():
 
     print('I am thinking of a number between %d and %d. You have %d tries.' % (LOWER_BOUND, UPPER_BOUND, NUM_GUESSES_ALLOWED))
     for numberOfGuesses in range(NUM_GUESSES_ALLOWED):
+        print('Take a guess.')
         while True:
             try:
                 guess = int(input())
