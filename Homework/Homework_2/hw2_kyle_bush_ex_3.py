@@ -5,6 +5,7 @@ Kyle Bush
 This program demonstrates various list operations.
 '''
 
+# Creates comma seperated string with the values of a list. Adds 'and' before the final item.
 def strList(list):
     listAsString = ''
     for item in list:
