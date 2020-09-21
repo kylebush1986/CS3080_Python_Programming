@@ -20,7 +20,7 @@ def printGameBoard(board):
     print(board['bot-left'] + '|' + board['bot-middle'] + '|' + board['bot-right'])
     print()
 
-def checkWinner(board, player):
+def isWinner(board, player):
     if board['top-left'] == player and board['top-middle'] == player and board['top-right'] == player:
         return True
     elif board['mid-left'] == player and board['mid-middle'] == player and board['mid-right'] == player:
@@ -56,9 +56,26 @@ def printOptions(board):
     print('bot-left'.center(10) + '|' + 'bot-middle'.center(10) + '|' + 'bot-right'.center(10))
     print()
 
-def main():
+def isSpaceTaken(board, space):
+    if board[space] == ' ':
+        return False
+    else:
+        return True
+
+def playAgain():
+    print('Play again? Y/n')
+    playAgain = input()
+    if playAgain == 'Y'.lower():
+        return True
+    else:
+        return False
+
+def setupNewGame(player):
     gameBoard = buildGameBoard()
-    player = 'X'
+    return (gameBoard, player)
+
+def main():
+    gameBoard, player = setupNewGame('X')
 
     print('This is a game of Tic Tac Toe. Try to get three of your symbols in a row to win.')
     printOptions(gameBoard)
@@ -68,20 +85,17 @@ def main():
         space = input()
         
         if space in gameBoard:
-            if gameBoard[space] == ' ':
-                gameBoard[space] = player
-            else:
+            if isSpaceTaken(gameBoard, space):
                 print('That space is taken. Choose another.')
                 continue
+            else:
+                gameBoard[space] = player              
             
-            if (checkWinner(gameBoard, player)):
+            if (isWinner(gameBoard, player)):
                 printGameBoard(gameBoard)
                 print(player + " WINS!!!")
-                print('Play again? Y/n')
-                playAgain = input()
-                if playAgain == 'Y'.lower():
-                    gameBoard = buildGameBoard()
-                    player = 'X'
+                if playAgain():
+                    gameBoard, player = setupNewGame(switchTurns(player))
                     continue
                 else:
                     break
