@@ -16,12 +16,12 @@ def printInventory(inventory):
 def addItem(inventory, item):
     inventory.setdefault(item, 0)
     inventory[item] += 1
-    print('Item added: ' + item + ', Quanity in Inventory: ' + str(inventory[item]))
+    print('Item added: ' + item + ', Quantity in Inventory: ' + str(inventory[item]))
 
 def deleteItem(inventory, item):
     if item in inventory and inventory[item] >= 0:
         inventory[item] -= 1
-        print('Item added: ' + item + ', Quanity in Inventory: ' + str(inventory[item]))
+        print('Item deleted: ' + item + ', Quantity in Inventory: ' + str(inventory[item]))
     else:
         print(item + ' is not in inventory.')
 
