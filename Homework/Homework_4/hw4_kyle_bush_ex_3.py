@@ -19,7 +19,7 @@ def main():
     (\d{3})                           # first 3 digits
     (\s|-|\.)                         # separator
     (\d{4})                           # last 4 digits
-    (\s*(ext|x|ext.)\s*(\d{2,5}))?    # extension
+    (\s*(ext|x|ext.|-)\s*(\d{2,5}))?  # extension
     )''', re.VERBOSE)
     
     # Define the regex to find email addresses
@@ -38,7 +38,7 @@ def main():
     for groups in phoneNumRegex.findall(clipBoardText):
        phoneNum = '-'.join([groups[1], groups[3], groups[5]])
        if groups[8] != '':
-           phoneNum += ' x' + groups[8]
+           phoneNum += ' ext. ' + groups[8]
        allMatches.append(phoneNum)
     for groups in emailRegex.findall(clipBoardText):
        allMatches.append(groups[0])
@@ -47,6 +47,7 @@ def main():
     if allMatches:
         pyperclip.copy('\n'.join(allMatches))
         print(str(len(allMatches)) + ' matches have been copied to the clipboard.')
+        print('\n'.join(allMatches))
     else:
         print('No phone numbers or emails found.')
 
