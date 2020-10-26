@@ -13,9 +13,7 @@ import pyperclip
 
 def main():
     # Define the regexs for finding phone numbers and emails
-    # TODO: write regex that will find any format of phone number
     phoneNumRegex = re.compile(r'\d{3}-\d{3}-\d{4}')
-    # (\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})
     emailRegex = re.compile(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+')
 
     # Copy the contents of the clipboard
