@@ -5,6 +5,7 @@ Kyle Bush
 Program defines a generator, genrange(), which generates the same sequence of values as range(),
 without creating a list object.
 '''
+import sys
 
 # Implements the same functionality as range() using a generator
 def genrange(stop, start = 0, step = 1):
@@ -28,7 +29,7 @@ def main():
     printGen(gen2)
 
     gen3 = genrange(100, 10, 10)
-    printGen(gen3)
+    printGen(gen3)   
 
 if __name__ == '__main__':
     main()
