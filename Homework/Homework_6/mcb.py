@@ -43,11 +43,14 @@ def copy(dataFile, keyword):
 def main():
     dataFile = shelve.open('saved_clipboard_contents')
 
+    # If there are 2 arguments then we expect a 'list' or 'copy' operation.
     if len(sys.argv) == 2:
         if sys.argv[1] == 'list':
             list(dataFile)
         else:
             copy(dataFile, sys.argv[1])
+
+    # If there are 3 arguments then we expect a save command.
     elif len(sys.argv) == 3:
         if sys.argv[1] == 'save':
             save(dataFile, sys.argv[2])
