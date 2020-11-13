@@ -1,7 +1,7 @@
 '''
-Homework 6, Exercise 2
+Homework 6, Exercise 3
 Kyle Bush
-11/09/2020
+11/13/2020
 Program to keeps track of multiple pieces of text. The program will save each piece
 of clipboard text under a keyword in mcb.py.
 Here’s what the mcb program does:

@@ -1,7 +1,7 @@
 '''
 Homework 6, Exercise 1
 Kyle Bush
-11/09/2020
+11/13/2020
 The @slowDown decorator will sleep for a certain number of seconds before it calls the decorated function.
 Has an optional rate argument that controls how long it sleeps.
 Has a default value of 1 second for the sleep duration.

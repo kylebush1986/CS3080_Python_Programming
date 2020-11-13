@@ -1,7 +1,7 @@
 '''
-Homework 6, Exercise 3
+Homework 6, Exercise 2
 Kyle Bush
-11/09/2020
+11/13/2020
 Program generates the Fibonacci sequence to a given number.
 1. Uses a @cache decorator that saves the calculations in a function attribute
 dictionary. The decorator works for functions with more than one argument.
